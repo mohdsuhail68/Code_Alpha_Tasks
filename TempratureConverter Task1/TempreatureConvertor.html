@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempreature Converter Website</title>
+
+    <style>
+        *{
+            margin: 0;
+
+            height: 100vh;
+            box-sizing: border-box;
+            font-family: cursive;
+                    }
+     body{
+         width: 100vw;
+         
+                 height: 100vh;
+        background-color: yellow;
+        display: grid;
+         place-items: center;
+
+         }
+
+         form {
+            background-color: bisque;
+            
+           width: 45vw;
+
+
+            height: 50vh;
+
+align-items: center;
+            
+           padding: 95px;
+           margin-left: 8vw;
+
+
+
+         }
+         input,select,option ,.button{
+
+    
+
+          height: max-content;
+         }
+         input{
+            margin-top: 2vh;
+margin-left: 8vw;
+            width: 5vw;
+         }
+
+         .button{
+
+      margin-left: 11vw;
+      margin-top: 3vh;
+      background-color: black;
+      border-radius: 23px solid;
+      color: aqua;
+      text-transform: capitalize;
+      width: 5vw;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;
+            width: fit-content;
+            font-weight: bolder;
+         }
+
+
+         @media (max-width: 600px){
+
+            form {
+            background-color: rgb(226, 199, 166);
+            
+           width: 80vw;
+
+           text-align: justify;
+            height: 30vh;
+
+
+            
+           padding: 35px;
+           margin-left: 5vw;
+
+
+
+         }
+
+         input{
+            margin-top: 3vh;
+margin-left: 0.1vw;
+            width: 24vw;
+         }
+
+         
+
+
+         }
+         
+    </style> 
+
+</head>
+<body>
+
+<form id="tempClc" onsubmit="claculateTemp(); return false"> 
+
+    <label for="temp">Please Enter the Tempreature you'd live to convert</label>
+    <input type="number" name="temp" id="temp">
+
+    <select name="temp_diff" id="temp_diff">
+        <option value="cel">Celsius</option>
+        <option value="fah">Fahrenheit</option>
+       
+
+    </select>
+    <br>
+<input class="button" type="submit" name="temp"><br>
+
+<span id="resultContainer" style="color: red;"> </span>
+
+
+</form>
+    
+    <script>
+
+        const claculateTemp= () =>{
+
+            const numberTemp = document.getElementById('temp').value;
+   
+
+            const temp_select = document.getElementById('temp_diff');
+             const valueTemp = temp_diff.options[temp_select.selectedIndex].value;
+
+             const celToFah=(cel) =>{
+
+                let fahrenheit = Math.round((cel*9/5)+32);
+                return fahrenheit;
+             }
+
+             const fehtoCel=(cel) =>{
+
+let Celcius = Math.round((cel-32)*5/9);
+return Celcius;
+}
+             let result;
+
+             if(valueTemp =='cel'){
+
+                result = celToFah(numberTemp)
+                document.getElementById('resultContainer').innerHTML=`=${result}Farnehites"`;
+             }
+             else{
+                    result =fehtoCel(numberTemp);
+                document.getElementById('resultContainer').innerHTML=`=${result} Celcius"`;
+
+             }
+
+
+
+
+        }
+    </script>
+</body>
+</html>
